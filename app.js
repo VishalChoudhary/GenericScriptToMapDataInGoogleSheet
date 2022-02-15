@@ -26,7 +26,7 @@ const authClient = new google.auth.JWT(
         const res = await service.spreadsheets.values.get({
             auth: authClient,
             spreadsheetId:process.env.CLIENT_ID,
-            range: "A:D",
+            range: "B:D",
         });
 
         // All of the details
@@ -43,7 +43,7 @@ const authClient = new google.auth.JWT(
 
             // For each row
             for (const row of rows) {
-                details.push({ timeStamp: row[0], name: row[1], age: row[2], dob: row[3] });
+                details.push({  name: row[0], age: row[1], dob: row[2] });
             }
 
         } else {
